@@ -1,0 +1,9 @@
+C:\Users\Lenovo\Desktop\TrainSystemApp\TrainSystemApp\TrainSystemApp\bin\Debug\TrainSystemApp.exe
+C:\Users\Lenovo\Desktop\TrainSystemApp\TrainSystemApp\TrainSystemApp\bin\Debug\TrainSystemApp.pdb
+C:\Users\Lenovo\Desktop\TrainSystemApp\TrainSystemApp\TrainSystemApp\obj\Debug\TrainSystemApp.csprojResolveAssemblyReference.cache
+C:\Users\Lenovo\Desktop\TrainSystemApp\TrainSystemApp\TrainSystemApp\obj\Debug\TrainSystemApp.frmMain.resources
+C:\Users\Lenovo\Desktop\TrainSystemApp\TrainSystemApp\TrainSystemApp\obj\Debug\TrainSystemApp.Properties.Resources.resources
+C:\Users\Lenovo\Desktop\TrainSystemApp\TrainSystemApp\TrainSystemApp\obj\Debug\TrainSystemApp.csproj.GenerateResource.Cache
+C:\Users\Lenovo\Desktop\TrainSystemApp\TrainSystemApp\TrainSystemApp\obj\Debug\TrainSystemApp.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\TrainSystemApp\TrainSystemApp\TrainSystemApp\obj\Debug\TrainSystemApp.exe
+C:\Users\Lenovo\Desktop\TrainSystemApp\TrainSystemApp\TrainSystemApp\obj\Debug\TrainSystemApp.pdb
