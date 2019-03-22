@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="Database1Entities">
+    <EntitySetMapping Name="ItineraryTable">
+      <EntityTypeMapping TypeName="Database1Model.ItineraryTable">
+        <MappingFragment StoreEntitySet="ItineraryTable">
+          <ScalarProperty Name="itinerary_id" ColumnName="itinerary_id" />
+          <ScalarProperty Name="train_number" ColumnName="train_number" />
+          <ScalarProperty Name="start_point" ColumnName="start_point" />
+          <ScalarProperty Name="end_point" ColumnName="end_point" />
+          <ScalarProperty Name="kilometres" ColumnName="kilometres" />
+          <ScalarProperty Name="start_time" ColumnName="start_time" />
+          <ScalarProperty Name="end_time" ColumnName="end_time" />
+          <ScalarProperty Name="class" ColumnName="class" />
+          <ScalarProperty Name="price_original" ColumnName="price_original" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TicketTable">
+      <EntityTypeMapping TypeName="Database1Model.TicketTable">
+        <MappingFragment StoreEntitySet="TicketTable">
+          <ScalarProperty Name="ticket_id" ColumnName="ticket_id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="direction" ColumnName="direction" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="itinerary_id" ColumnName="itinerary_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TownTable">
+      <EntityTypeMapping TypeName="Database1Model.TownTable">
+        <MappingFragment StoreEntitySet="TownTable">
+          <ScalarProperty Name="town_id" ColumnName="town_id" />
+          <ScalarProperty Name="town_name" ColumnName="town_name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserTable">
+      <EntityTypeMapping TypeName="Database1Model.UserTable">
+        <MappingFragment StoreEntitySet="UserTable">
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="town" ColumnName="town" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="phone_number" ColumnName="phone_number" />
+          <ScalarProperty Name="ticket_id" ColumnName="ticket_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
