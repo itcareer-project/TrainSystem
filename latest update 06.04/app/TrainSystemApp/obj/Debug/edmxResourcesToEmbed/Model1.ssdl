@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ItineraryTable">
+    <Key>
+      <PropertyRef Name="itinerary_id" />
+    </Key>
+    <Property Name="itinerary_id" Type="int" Nullable="false" />
+    <Property Name="train_number" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="start_point" Type="int" Nullable="false" />
+    <Property Name="end_point" Type="int" Nullable="false" />
+    <Property Name="kilometres" Type="int" Nullable="false" />
+    <Property Name="start_time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="end_time" Type="time" Precision="7" Nullable="false" />
+    <Property Name="class" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="price_original" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TicketTable">
+    <Key>
+      <PropertyRef Name="ticket_id" />
+    </Key>
+    <Property Name="ticket_id" Type="int" Nullable="false" />
+    <Property Name="type" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="direction" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="price" Type="int" Nullable="false" />
+    <Property Name="date" Type="datetime" Nullable="false" />
+    <Property Name="itinerary_id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TownTable">
+    <Key>
+      <PropertyRef Name="town_id" />
+    </Key>
+    <Property Name="town_id" Type="int" Nullable="false" />
+    <Property Name="town_name" Type="nchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="UserTable">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="int" Nullable="false" />
+    <Property Name="first_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="last_name" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="town" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="phone_number" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ticket_id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_ItineraryTable_ToTownTable1">
+    <End Role="TownTable" Type="Self.TownTable" Multiplicity="1" />
+    <End Role="ItineraryTable" Type="Self.ItineraryTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TownTable">
+        <PropertyRef Name="town_id" />
+      </Principal>
+      <Dependent Role="ItineraryTable">
+        <PropertyRef Name="start_point" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ItineraryTable_ToTownTable2">
+    <End Role="TownTable" Type="Self.TownTable" Multiplicity="1" />
+    <End Role="ItineraryTable" Type="Self.ItineraryTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TownTable">
+        <PropertyRef Name="town_id" />
+      </Principal>
+      <Dependent Role="ItineraryTable">
+        <PropertyRef Name="end_point" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TicketTable_ToItineraryTable">
+    <End Role="ItineraryTable" Type="Self.ItineraryTable" Multiplicity="1" />
+    <End Role="TicketTable" Type="Self.TicketTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ItineraryTable">
+        <PropertyRef Name="itinerary_id" />
+      </Principal>
+      <Dependent Role="TicketTable">
+        <PropertyRef Name="itinerary_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UserTable_ToTicketTable">
+    <End Role="TicketTable" Type="Self.TicketTable" Multiplicity="1" />
+    <End Role="UserTable" Type="Self.UserTable" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TicketTable">
+        <PropertyRef Name="ticket_id" />
+      </Principal>
+      <Dependent Role="UserTable">
+        <PropertyRef Name="ticket_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Database1ModelStoreContainer">
+    <EntitySet Name="ItineraryTable" EntityType="Self.ItineraryTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TicketTable" EntityType="Self.TicketTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TownTable" EntityType="Self.TownTable" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="UserTable" EntityType="Self.UserTable" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ItineraryTable_ToTownTable1" Association="Self.FK_ItineraryTable_ToTownTable1">
+      <End Role="TownTable" EntitySet="TownTable" />
+      <End Role="ItineraryTable" EntitySet="ItineraryTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ItineraryTable_ToTownTable2" Association="Self.FK_ItineraryTable_ToTownTable2">
+      <End Role="TownTable" EntitySet="TownTable" />
+      <End Role="ItineraryTable" EntitySet="ItineraryTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TicketTable_ToItineraryTable" Association="Self.FK_TicketTable_ToItineraryTable">
+      <End Role="ItineraryTable" EntitySet="ItineraryTable" />
+      <End Role="TicketTable" EntitySet="TicketTable" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UserTable_ToTicketTable" Association="Self.FK_UserTable_ToTicketTable">
+      <End Role="TicketTable" EntitySet="TicketTable" />
+      <End Role="UserTable" EntitySet="UserTable" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
